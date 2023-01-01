@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { uiSettingsReducer, themeSwitch } from "./slices/uiSettings";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { filterSlice, reset, setSearchTerm } from "./slices/filterSlice";
+import { paginationSlice } from "./slices/paginationSlice";
 import {
   charactersAPI,
   useGetAllCharactersQuery,
@@ -12,6 +13,7 @@ export const store = configureStore({
   reducer: {
     uiSettings: uiSettingsReducer,
     filter: filterSlice.reducer,
+    pagination: paginationSlice.reducer,
     [charactersAPI.reducerPath]: charactersAPI.reducer,
   },
   middleware: (getDefaultMiddleware) => {

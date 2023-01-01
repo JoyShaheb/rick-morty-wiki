@@ -8,17 +8,19 @@ interface iLoadingState {
   isLoading: boolean;
   error: FetchBaseQueryError | SerializedError | undefined;
   skeletonCount?: number;
+  isFetching: boolean;
 }
 const LoadingState: FC<iLoadingState> = ({
   error,
   isLoading,
   skeletonCount,
+  isFetching,
 }) => {
   const cardHeight = 350;
   const animationType = "wave";
   return (
     <>
-      {isLoading &&
+      {(isLoading || isFetching) &&
         !error &&
         Array(skeletonCount)
           .fill(0)
