@@ -25,7 +25,6 @@ const Characters = () => {
     page: currentPage,
   });
   const { info, results } = data || {};
-  console.log(info);
 
   return (
     <Container maxWidth="xl" sx={{ my: 3 }}>

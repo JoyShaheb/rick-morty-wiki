@@ -19,6 +19,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Characters />} />
+          <Route path="/characters" element={<Characters />} />
           <Route path="/Episode" element={<Episode />} />
           <Route path="/Location" element={<Location />} />
           <Route path="*" element={<Error404 />} />
