@@ -163,7 +163,7 @@ const Navbar: FC<iNavbarProps> = ({ window, children }) => {
               ))}
               <FormControlLabel
                 checked={theme === "dark" ? true : false}
-                control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+                control={<MaterialUISwitch sx={{ m: 1 }} />}
                 label=""
                 onChange={(e) =>
                   (e.target as SwitchProps).checked

@@ -11,39 +11,45 @@ import LoadingState from "../components/states/LoadingState/LoadingState";
 import ErrorState from "../components/states/ErrorState/ErrorState";
 import NoDataState from "../components/states/NoDataState/NoDataState";
 import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
+import InfoCard from "../components/InfoCard/InfoCard";
 
 const Characters = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [currentPage, setCurrentPages] = React.useState<number>(1);
   const {
     filter: { searchTerm },
-    pagination,
   } = useSelector((state: any) => state);
   const { data, error, isLoading, isFetching } = useGetAllCharactersQuery({
     name: searchTerm,
+    page: currentPage,
   });
   const { info, results } = data || {};
+  console.log(info);
 
   return (
     <Container maxWidth="xl" sx={{ my: 3 }}>
       <SearchBar
+        value={searchTerm}
         title="Characters"
         placeholder="Search for characters"
         label="Search"
-        onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+        onChange={(e) => {
+          setCurrentPages(1);
+          dispatch(setSearchTerm(e.target.value));
+        }}
       />
 
+      <InfoCard label="Characters Found" value={info?.count} variant="h6" />
+
       <Grid container rowSpacing={1} columnSpacing={1}>
-        <Grid
-          item
-          sx={{ border: "2px solid red" }}
-          xs={12}
-          justifyItems="center"
-          alignItems="center"
-          justifyContent="center"
-          alignContent="center"
-        >
-          <PaginationComponent count={20} />
+        <Grid item xs={12} mb={2}>
+          <PaginationComponent
+            count={info?.pages}
+            onChange={(e: React.ChangeEvent<unknown>, page: number) =>
+              setCurrentPages(page)
+            }
+          />
         </Grid>
         <LoadingState
           error={error}

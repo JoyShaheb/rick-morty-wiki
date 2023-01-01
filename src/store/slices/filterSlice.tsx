@@ -16,6 +16,7 @@ export const filterSlice = createSlice({
       state.searchTerm = "";
       state.status = "";
       state.species = "";
+      state.gender = "";
     },
   },
   extraReducers: (builder) => {},
