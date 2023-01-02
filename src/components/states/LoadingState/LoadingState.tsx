@@ -8,7 +8,7 @@ interface iLoadingState {
   isLoading: boolean;
   error: FetchBaseQueryError | SerializedError | undefined;
   skeletonCount?: number;
-  isFetching: boolean;
+  isFetching?: boolean;
 }
 const LoadingState: FC<iLoadingState> = ({
   error,
