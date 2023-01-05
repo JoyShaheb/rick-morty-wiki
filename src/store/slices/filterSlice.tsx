@@ -12,7 +12,12 @@ export const filterSlice = createSlice({
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
     },
-    reset: (state) => {
+    setFilters: (state, action) => {
+      const { name, value } = action.payload;
+      // @ts-ignore
+      state[name] = value;
+    },
+    resetCharacterFilters: (state) => {
       state.searchTerm = "";
       state.status = "";
       state.species = "";
@@ -22,4 +27,4 @@ export const filterSlice = createSlice({
   extraReducers: (builder) => {},
 });
 
-export const { setSearchTerm, reset } = filterSlice.actions;
+export const { setSearchTerm, resetCharacterFilters, setFilters } = filterSlice.actions;

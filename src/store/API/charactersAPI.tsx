@@ -7,8 +7,8 @@ export const charactersAPI = createApi({
   }),
   endpoints: (builder) => ({
     getAllCharacters: builder.query({
-      query: ({ name, page }) => ({
-        url: `/character?name=${name}&page=${page}`,
+      query: ({ name, page, status, species, gender }) => ({
+        url: `/character?name=${name}&page=${page}&status=${status}&species=${species}&gender=${gender}`,
         method: "GET",
       }),
     }),

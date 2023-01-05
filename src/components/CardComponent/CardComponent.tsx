@@ -6,6 +6,7 @@ interface iCardComponent {
   name: string;
   image: string;
   status: string;
+  species: string;
   onClick: () => void;
   location: {
     name: string;
@@ -20,6 +21,7 @@ const CardComponent: FC<iCardComponent> = ({
   status,
   onClick,
   location,
+  species
 }) => {
   return (
     <Card
@@ -38,7 +40,7 @@ const CardComponent: FC<iCardComponent> = ({
           {name}
         </Typography>
         <Typography variant="caption" color="text.secondary">
-          Last Known Location
+          {species}
         </Typography>
         <Typography variant="body1" color="text.secondary">
           {location.name}
