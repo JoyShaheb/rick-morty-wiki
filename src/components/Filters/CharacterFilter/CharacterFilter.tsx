@@ -44,7 +44,7 @@ const CharacterFilter = () => {
         <Button onClick={() => dispatch(resetCharacterFilters())}>Reset</Button>
       </Stack>
       {/* status */}
-      <Accordion>
+      <Accordion defaultExpanded={status !==''}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -63,7 +63,7 @@ const CharacterFilter = () => {
         </AccordionDetails>
       </Accordion>
       {/* Species */}
-      <Accordion>
+      <Accordion defaultExpanded={species !==''}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -82,7 +82,7 @@ const CharacterFilter = () => {
         </AccordionDetails>
       </Accordion>
       {/* Gender */}
-      <Accordion>
+      <Accordion defaultExpanded={gender !==''}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3a-content"

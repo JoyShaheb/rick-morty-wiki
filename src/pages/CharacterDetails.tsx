@@ -21,8 +21,15 @@ const CharacterDetails = () => {
         !isFetching &&
         Object?.keys(data)?.length > 0 && (
           <Stack direction="column" alignItems="center" gap={1}>
-            <Stack direction="row" alignItems="center" gap={1}>
-              <Typography variant="h4">{name}</Typography>
+            <Stack
+              direction={{ sm: "column", md: "row" }}
+              alignItems={{ sm: "start", md: "center" }}
+              gap={1}
+              mb={1}
+            >
+              <Typography textAlign="center" variant="h5">
+                {name}
+              </Typography>
               <Chip
                 label={status}
                 color={
