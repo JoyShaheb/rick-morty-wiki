@@ -18,8 +18,14 @@ export const charactersAPI = createApi({
         method: "GET",
       }),
     }),
+    getMultipleCharacters: builder.query({
+      query: (ids) => ({
+        url: `/character/${ids}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetAllCharactersQuery, useGetOneCharacterQuery } =
+export const { useGetAllCharactersQuery, useGetOneCharacterQuery, useGetMultipleCharactersQuery } =
   charactersAPI;

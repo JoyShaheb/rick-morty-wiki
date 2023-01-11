@@ -129,7 +129,7 @@ const Navbar: FC<iNavbarProps> = ({ window, children }) => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ zIndex: 5 }}>
         <Container maxWidth="xl">
           <Toolbar>
             <IconButton

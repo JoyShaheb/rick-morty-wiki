@@ -13,6 +13,7 @@ import NoDataState from "../components/states/NoDataState/NoDataState";
 import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
 import InfoCard from "../components/InfoCard/InfoCard";
 import CharacterFilter from "../components/Filters/CharacterFilter/CharacterFilter";
+import { Progress } from "../components/NProgress/ProgressBar";
 
 const Characters = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,8 @@ const Characters = () => {
   });
   const { info, results } = data || {};
   console.log(data);
+
+  Progress(isFetching);
 
   return (
     <Container maxWidth="xl" sx={{ my: 3 }}>

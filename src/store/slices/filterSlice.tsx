@@ -7,6 +7,8 @@ export const filterSlice = createSlice({
     status: "",
     species: "",
     gender: "",
+    episode: 1,
+    location: 1,
   },
   reducers: {
     setSearchTerm: (state, action) => {
@@ -17,14 +19,23 @@ export const filterSlice = createSlice({
       // @ts-ignore
       state[name] = value;
     },
+    changeEpisode: (state, action) => {
+      state.episode = action.payload;
+    },
+    changeLocation: (state, action) => {
+      state.location = action.payload;
+    },
     resetCharacterFilters: (state) => {
       state.searchTerm = "";
       state.status = "";
       state.species = "";
       state.gender = "";
+      state.episode = 1;
+      state.location = 1;
     },
   },
   extraReducers: (builder) => {},
 });
 
-export const { setSearchTerm, resetCharacterFilters, setFilters } = filterSlice.actions;
+export const { setSearchTerm, resetCharacterFilters, setFilters, changeEpisode, changeLocation } =
+  filterSlice.actions;

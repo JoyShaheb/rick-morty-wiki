@@ -8,12 +8,13 @@ interface iNoDataState {
   isLoading: boolean;
   error: FetchBaseQueryError | SerializedError | undefined;
   dataLength?: number;
+  isFetching?: boolean;
 }
 
-const NoDataState: FC<iNoDataState> = ({ error, isLoading, dataLength }) => {
+const NoDataState: FC<iNoDataState> = ({ error, isLoading, dataLength, isFetching }) => {
   return (
     <>
-      {!isLoading && !error && dataLength === 0 && (
+      {!isLoading && !isFetching && !error && dataLength === 0 && (
         <Grid key={nanoid()} item xs={12}>
           <Typography variant="h5" textAlign="center">
             No Data found

@@ -5,12 +5,15 @@ import { useParams } from "react-router-dom";
 import LoadingState from "../components/states/LoadingState/LoadingState";
 import Tags from "../components/Tags/Tags";
 import ErrorState from "../components/states/ErrorState/ErrorState";
+import { Progress } from "../components/NProgress/ProgressBar";
 
 const CharacterDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data, isLoading, error, isFetching } = useGetOneCharacterQuery(id);
   const { gender, image, location, name, origin, status, species } = data || {};
   console.log(data);
+
+  Progress(isFetching)
 
   return (
     <Container maxWidth="xl" sx={{ my: 4 }}>
