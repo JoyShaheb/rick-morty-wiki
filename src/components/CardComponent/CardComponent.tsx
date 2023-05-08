@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Typography, Card, CardContent, CardMedia, Chip } from "@mui/material";
 import { ICharacter } from "../../types/characters.interface";
+import { CharacterStatusEnums } from "../../types/enums";
 
 interface iCardComponent extends ICharacter {
   onClick: () => void;
@@ -26,7 +27,11 @@ const CardComponent: FC<iCardComponent> = ({
       }}
       onClick={onClick}
     >
-      <CardMedia sx={{ height: 220 }} image={image} title="image here" />
+      <CardMedia
+        sx={{ height: 220 }}
+        image={image}
+        title="Character Image here"
+      />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {name}
@@ -42,9 +47,9 @@ const CardComponent: FC<iCardComponent> = ({
         label={status}
         sx={{ position: "absolute", right: "10px", top: "10px" }}
         color={
-          status === "Alive"
+          status === CharacterStatusEnums.ALIVE
             ? "success"
-            : status === "Dead"
+            : status === CharacterStatusEnums.DEAD
             ? "error"
             : "warning"
         }
