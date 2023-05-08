@@ -10,21 +10,27 @@ import {
 } from "./pages";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { theme } from "./theme";
 
 const App = () => {
-  const x = useSelector((xx: RootState) => xx); // for testing the state
-  console.log(x);
+  const uiTheme = useSelector((state: RootState) => state.system); // for testing the state
+  console.log(uiTheme.mode);
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/characters" element={<Characters />} />
-        <Route path="/characters/:id" element={<CharacterDetails />} />
-        <Route path="/Episode" element={<Episode />} />
-        <Route path="/location" element={<Location />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme(uiTheme.mode)}>
+      <CssBaseline />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/characters" element={<Characters />} />
+          <Route path="/characters/:id" element={<CharacterDetails />} />
+          <Route path="/Episode" element={<Episode />} />
+          <Route path="/location" element={<Location />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };
 

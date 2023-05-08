@@ -1,19 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { ThemeTypes, MuiThemeEnums } from "../../types.d";
 
 interface SystemState {
-  mode: "light" | "dark";
+  mode: ThemeTypes;
 }
 
 const initialState: SystemState = {
-  mode: "light",
+  mode: MuiThemeEnums.DARK,
 };
 
 export const sysmtemSlice = createSlice({
   name: "system",
   initialState,
   reducers: {
-    setMode: (state: SystemState, action: PayloadAction<"light" | "dark">) => {
+    setMode: (state: SystemState, action: PayloadAction<ThemeTypes>) => {
       state.mode = action.payload;
     },
     resetSystem: () => initialState,
