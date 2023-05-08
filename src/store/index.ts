@@ -1,7 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { sysmtemSlice, resetSystem, themeSwitch } from "./Slices/systemSlice";
-import { filterSlice, setPostPerPage, resetFilter } from "./Slices/FilterSlice";
+import {
+  filterSlice,
+  setPostPerPage,
+  setSearchTerm,
+  resetFilter,
+} from "./Slices/FilterSlice";
 import {
   charactersAPI,
   useGetAllCharactersQuery,
@@ -30,6 +35,7 @@ export {
   // filter actions
   setPostPerPage,
   resetFilter,
+  setSearchTerm,
 
   // Characters API
   useGetAllCharactersQuery,

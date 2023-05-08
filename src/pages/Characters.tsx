@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { useGetAllCharactersQuery } from "../store";
+import { RootState, setSearchTerm, useGetAllCharactersQuery } from "../store";
 import CardComponent from "../components/CardComponent/CardComponent";
 import { useNavigate } from "react-router-dom";
 import { ICharacter } from "../types/characters.interface";
@@ -9,22 +9,40 @@ import { Typography } from "@mui/material";
 import LoadingState from "../components/states/LoadingState";
 import ErrorState from "../components/states/ErrorState";
 import NoDataState from "../components/states/NoDataState";
-import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
+// import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
+import SearchBar from "../components/SearchBar/SearchBar";
+import { useSelector, useDispatch } from "react-redux";
 
 const Characters = () => {
-  const { data, isLoading, error, isFetching } = useGetAllCharactersQuery("");
-  const { info, results } = data || {};
-
-  console.log(data);
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { postsPerPage, searchTerm } = useSelector((x: RootState) => x.filter);
+
+  const { data, isLoading, error, isFetching } = useGetAllCharactersQuery({
+    page: 1,
+    name: searchTerm,
+    gender: "",
+    status: "",
+    species: "",
+  });
+  const { info, results } = data || {};
 
   ProgressBar(isFetching);
   return (
     <div>
-      {/* // searchBar will be here */}
+      <SearchBar
+        value={searchTerm}
+        title="Characters"
+        placeholder="Search for characters"
+        label="Search"
+        onChange={(e) => {
+          // setCurrentPages(1);
+          dispatch(setSearchTerm(e.target.value));
+        }}
+      />
       <Typography mb={2} textAlign="center" variant="h6">
-        Total Characters Found : {info?.count}
+        Total Characters Found :{" "}
+        {error && !isLoading && !isFetching ? 0 : info?.count}
       </Typography>
 
       <Grid container rowSpacing={2} columnSpacing={2}>
