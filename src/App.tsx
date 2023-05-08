@@ -8,8 +8,12 @@ import {
   Episode,
   Location,
 } from "./pages";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
 
 const App = () => {
+  const x = useSelector((xx: RootState) => xx); // for testing the state
+  console.log(x);
   return (
     <Router>
       <Routes>
