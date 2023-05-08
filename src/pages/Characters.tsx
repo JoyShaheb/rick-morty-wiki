@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { useGetAllCharactersQuery } from "../store";
 
 const Characters = () => {
-  return (
-    <div>Characters</div>
-  )
-}
+  const { data } = useGetAllCharactersQuery("");
 
-export default Characters
+  console.log(data);
+
+  return <div>Characters</div>;
+};
+
+export default Characters;

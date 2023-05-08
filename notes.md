@@ -20,3 +20,10 @@
 * add storybook features
 * add unit tests
 * add loading page
+
+## note to myself
+
+* learn what these things are
+
+  // Adding the api middleware enables caching, invalidation, polling,
+  // and other useful features of `rtk-query`.
