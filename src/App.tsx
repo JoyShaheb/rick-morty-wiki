@@ -16,11 +16,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { Container } from "@mui/material";
 
 const App = () => {
-  /**
-   * ! Remove this portion later
-   */
-  const uiTheme = useSelector((state: RootState) => state.system); // for testing the state
-  console.log(uiTheme.mode);
+  const uiTheme = useSelector((state: RootState) => state.system);
 
   return (
     <ThemeProvider theme={theme(uiTheme.mode)}>
@@ -43,3 +39,4 @@ const App = () => {
 };
 
 export default App;
+``;

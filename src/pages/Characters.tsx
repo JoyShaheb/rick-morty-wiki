@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { ICharacter } from "../types/characters.interface";
 import { nanoid } from "nanoid";
 import { ProgressBar } from "../components/NProgress/ProgressBar";
+import { Typography } from "@mui/material";
+import LoadingState from "../components/states/LoadingState";
+import ErrorState from "../components/states/ErrorState";
+import NoDataState from "../components/states/NoDataState";
 
 const Characters = () => {
   const { data, isLoading, error, isFetching } = useGetAllCharactersQuery("");
@@ -17,6 +21,10 @@ const Characters = () => {
   ProgressBar(isFetching);
   return (
     <div>
+      {/* // searchBar will be here */}
+      <Typography mb={2} textAlign="center" variant="h6">
+        Total Characters Found : {info?.count}
+      </Typography>
       <Grid container rowSpacing={2} columnSpacing={2}>
         <Grid item xs={12} mb={2}>
           pagination will be here
@@ -33,7 +41,7 @@ const Characters = () => {
         </Grid>
         <Grid item xs={12} md={10} lg={10}>
           <Grid container rowSpacing={1} columnSpacing={1}>
-            {/* <LoadingState
+            <LoadingState
               error={error}
               isLoading={isLoading}
               skeletonCount={12}
@@ -44,7 +52,7 @@ const Characters = () => {
               error={error}
               isLoading={isLoading}
               dataLength={results?.length}
-            /> */}
+            />
 
             {!isLoading &&
               !error &&
