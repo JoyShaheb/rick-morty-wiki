@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { ThemeTypes, MuiThemeEnums } from "../../types.d";
+import { ThemeTypes } from "../../types/types";
+import { MuiThemeEnums } from "../../types/enums";
 
 interface SystemState {
   mode: ThemeTypes;

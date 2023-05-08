@@ -1,17 +1,18 @@
 import { createTheme } from "@mui/material/styles";
-import { ThemeTypes } from "./types";
+import { ThemeTypes } from "./types/types";
+import { MuiThemeEnums } from "./types/enums";
 
 const darkTheme = createTheme({
   palette: {
-    mode: "dark",
+    mode: MuiThemeEnums.DARK,
   },
 });
 const lightTheme = createTheme({
   palette: {
-    mode: "light",
+    mode: MuiThemeEnums.LIGHT,
   },
 });
 
 export const theme = (theme: ThemeTypes) => {
-  return theme == "dark" ? darkTheme : lightTheme;
+  return theme == MuiThemeEnums.DARK ? darkTheme : lightTheme;
 };

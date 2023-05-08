@@ -1,6 +1,3 @@
-export enum MuiThemeEnums {
-  DARK = "dark",
-  LIGHT = "light",
-}
+import { MuiThemeEnums } from "./enums";
 
 export type ThemeTypes = MuiThemeEnums.DARK | MuiThemeEnums.LIGHT;
