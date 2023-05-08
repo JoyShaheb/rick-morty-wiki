@@ -4,6 +4,7 @@ import CardComponent from "../components/CardComponent/CardComponent";
 import { useNavigate } from "react-router-dom";
 import { ICharacter } from "../types/characters.interface";
 import { nanoid } from "nanoid";
+import { ProgressBar } from "../components/NProgress/ProgressBar";
 
 const Characters = () => {
   const { data, isLoading, error, isFetching } = useGetAllCharactersQuery("");
@@ -13,6 +14,7 @@ const Characters = () => {
 
   const navigate = useNavigate();
 
+  ProgressBar(isFetching);
   return (
     <div>
       <Grid container rowSpacing={2} columnSpacing={2}>
