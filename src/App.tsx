@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Home,
@@ -13,22 +12,31 @@ import { RootState } from "./store";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { theme } from "./theme";
+import Navbar from "./components/Navbar/Navbar";
+import { Container } from "@mui/material";
 
 const App = () => {
+  /**
+   * ! Remove this portion later
+   */
   const uiTheme = useSelector((state: RootState) => state.system); // for testing the state
   console.log(uiTheme.mode);
+
   return (
     <ThemeProvider theme={theme(uiTheme.mode)}>
       <CssBaseline />
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/characters" element={<Characters />} />
-          <Route path="/characters/:id" element={<CharacterDetails />} />
-          <Route path="/Episode" element={<Episode />} />
-          <Route path="/location" element={<Location />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <Navbar />
+        <Container maxWidth="xl" sx={{ my: 3 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/characters" element={<Characters />} />
+            <Route path="/characters/:id" element={<CharacterDetails />} />
+            <Route path="/Episode" element={<Episode />} />
+            <Route path="/location" element={<Location />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </Container>
       </Router>
     </ThemeProvider>
   );

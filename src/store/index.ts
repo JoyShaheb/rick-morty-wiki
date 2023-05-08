@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { sysmtemSlice, resetSystem, setMode } from "./Slices/systemSlice";
+import { sysmtemSlice, resetSystem, themeSwitch } from "./Slices/systemSlice";
 import { filterSlice, setPostPerPage, resetFilter } from "./Slices/FilterSlice";
 
 export const store = configureStore({
@@ -23,7 +23,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export {
   // system actions
   resetSystem,
-  setMode,
+  themeSwitch,
 
   // filter actions
   setPostPerPage,

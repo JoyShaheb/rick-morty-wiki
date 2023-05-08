@@ -15,11 +15,11 @@ export const sysmtemSlice = createSlice({
   name: "system",
   initialState,
   reducers: {
-    setMode: (state: SystemState, action: PayloadAction<ThemeTypes>) => {
+    themeSwitch: (state: SystemState, action: PayloadAction<ThemeTypes>) => {
       state.mode = action.payload;
     },
     resetSystem: () => initialState,
   },
 });
 
-export const { setMode, resetSystem } = sysmtemSlice.actions;
+export const { themeSwitch, resetSystem } = sysmtemSlice.actions;

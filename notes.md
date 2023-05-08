@@ -1,3 +1,7 @@
+# Key features
+
+* Dark / Light Mode implementation
+
 # features to implement
 
 * dark/ light mode
@@ -7,6 +11,9 @@
 * ✅ add vercel.json for hosting
 * add redux to the project
 * add animated loading skeleton feature
+* make all the route links small letter
+* remove all the console.log comments
+* add beautiful comments and documentations
 
 ## future features
 
