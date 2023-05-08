@@ -9,6 +9,7 @@ import { Typography } from "@mui/material";
 import LoadingState from "../components/states/LoadingState";
 import ErrorState from "../components/states/ErrorState";
 import NoDataState from "../components/states/NoDataState";
+import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
 
 const Characters = () => {
   const { data, isLoading, error, isFetching } = useGetAllCharactersQuery("");
@@ -25,6 +26,7 @@ const Characters = () => {
       <Typography mb={2} textAlign="center" variant="h6">
         Total Characters Found : {info?.count}
       </Typography>
+
       <Grid container rowSpacing={2} columnSpacing={2}>
         <Grid item xs={12} mb={2}>
           pagination will be here
@@ -35,10 +37,12 @@ const Characters = () => {
             }
           /> */}
         </Grid>
+
         <Grid item xs={12} md={2} lg={2}>
           {/* <CharacterFilter /> */}
           character filters will be here
         </Grid>
+
         <Grid item xs={12} md={10} lg={10}>
           <Grid container rowSpacing={1} columnSpacing={1}>
             <LoadingState
