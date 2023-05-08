@@ -14,6 +14,8 @@
 * make all the route links small letter
 * remove all the console.log comments
 * add beautiful comments and documentations
+* use the NProgress bar library
+* custom error State and no data state component
 
 ## future features
 
