@@ -21,7 +21,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Characters = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { postsPerPage, searchTerm, pageNumber } = useSelector(
+  const { searchTerm, pageNumber } = useSelector(
     (x: RootState) => x.filter
   );
 
@@ -43,7 +43,7 @@ const Characters = () => {
         placeholder="Search for characters"
         label="Search"
         onChange={(e) => {
-          setPageNumber(1);
+          dispatch(setPageNumber(1));
           dispatch(setSearchTerm(e.target.value));
         }}
       />
@@ -55,6 +55,7 @@ const Characters = () => {
       <Grid container rowSpacing={2} columnSpacing={2}>
         <Grid item xs={12} mb={2}>
           <PaginationComponent
+            currentPage={pageNumber}
             count={info?.pages}
             onChange={(e: React.ChangeEvent<unknown>, page: number) =>
               dispatch(setPageNumber(page))
