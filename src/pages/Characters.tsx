@@ -21,9 +21,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Characters = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { searchTerm, pageNumber } = useSelector(
-    (x: RootState) => x.filter
-  );
+  const { searchTerm, pageNumber } = useSelector((x: RootState) => x.filter);
 
   const { data, isLoading, error, isFetching } = useGetAllCharactersQuery({
     page: pageNumber,
