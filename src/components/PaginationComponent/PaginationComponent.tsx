@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import Pagination from "@mui/material/Pagination";
 
 interface iPaginationComponent {
-  count: number;
+  count: number | undefined;
   shape?: "rounded" | "circular";
   onChange?: (e: React.ChangeEvent<unknown>, page: number) => void;
 }

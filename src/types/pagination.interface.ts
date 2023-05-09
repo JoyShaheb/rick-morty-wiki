@@ -1,6 +1,6 @@
 export interface IPaginationInfo {
-  count: number;
-  pages: number;
+  count: number | undefined;
+  pages: number | undefined;
   next: string | null;
   prev: string | null;
 }

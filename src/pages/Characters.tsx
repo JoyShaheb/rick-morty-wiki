@@ -1,5 +1,10 @@
 import { Grid } from "@mui/material";
-import { RootState, setSearchTerm, useGetAllCharactersQuery } from "../store";
+import {
+  RootState,
+  setPageNumber,
+  setSearchTerm,
+  useGetAllCharactersQuery,
+} from "../store";
 import CardComponent from "../components/CardComponent/CardComponent";
 import { useNavigate } from "react-router-dom";
 import { ICharacter } from "../types/characters.interface";
@@ -9,17 +14,19 @@ import { Typography } from "@mui/material";
 import LoadingState from "../components/states/LoadingState";
 import ErrorState from "../components/states/ErrorState";
 import NoDataState from "../components/states/NoDataState";
-// import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
+import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { useSelector, useDispatch } from "react-redux";
 
 const Characters = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { postsPerPage, searchTerm } = useSelector((x: RootState) => x.filter);
+  const { postsPerPage, searchTerm, pageNumber } = useSelector(
+    (x: RootState) => x.filter
+  );
 
   const { data, isLoading, error, isFetching } = useGetAllCharactersQuery({
-    page: 1,
+    page: pageNumber,
     name: searchTerm,
     gender: "",
     status: "",
@@ -36,7 +43,7 @@ const Characters = () => {
         placeholder="Search for characters"
         label="Search"
         onChange={(e) => {
-          // setCurrentPages(1);
+          setPageNumber(1);
           dispatch(setSearchTerm(e.target.value));
         }}
       />
@@ -47,13 +54,12 @@ const Characters = () => {
 
       <Grid container rowSpacing={2} columnSpacing={2}>
         <Grid item xs={12} mb={2}>
-          pagination will be here
-          {/* <PaginationComponent
+          <PaginationComponent
             count={info?.pages}
             onChange={(e: React.ChangeEvent<unknown>, page: number) =>
-              setCurrentPages(page)
+              dispatch(setPageNumber(page))
             }
-          /> */}
+          />
         </Grid>
 
         <Grid item xs={12} md={2} lg={2}>

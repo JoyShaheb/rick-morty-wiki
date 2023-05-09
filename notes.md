@@ -4,6 +4,7 @@
 
 # features to implement
 
+* add a HOC for wrapping the NProgress bar
 * dark/ light mode
 * add a search bar
 * add filters to filter characters

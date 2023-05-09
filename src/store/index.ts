@@ -6,6 +6,7 @@ import {
   setPostPerPage,
   setSearchTerm,
   resetFilter,
+  setPageNumber,
 } from "./Slices/FilterSlice";
 import {
   charactersAPI,
@@ -36,6 +37,7 @@ export {
   setPostPerPage,
   resetFilter,
   setSearchTerm,
+  setPageNumber,
 
   // Characters API
   useGetAllCharactersQuery,
