@@ -17,6 +17,8 @@
 * add beautiful comments and documentations
 * use the NProgress bar library
 * custom error State and no data state component
+* make a beautiful 404 page like this <https://reactjsexample.com/a-next-js-web-app-that-displays-details-of-characters-from-the-rick-and-morty-show/>
+* put a custom 404 error on the errorState
 
 ## future features
 
