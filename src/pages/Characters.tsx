@@ -11,9 +11,11 @@ import { ICharacter } from "../types/characters.interface";
 import { nanoid } from "nanoid";
 import { ProgressBar } from "../components/NProgress/ProgressBar";
 import { Typography } from "@mui/material";
-import LoadingState from "../components/states/LoadingState";
-import ErrorState from "../components/states/ErrorState";
-import NoDataState from "../components/states/NoDataState";
+import {
+  ErrorState,
+  NoDataState,
+  LoadingState,
+} from "../components/states/index";
 import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { useSelector, useDispatch } from "react-redux";
