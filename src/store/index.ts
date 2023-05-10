@@ -3,10 +3,10 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { sysmtemSlice, resetSystem, themeSwitch } from "./Slices/systemSlice";
 import {
   filterSlice,
-  setPostPerPage,
   setSearchTerm,
   resetFilter,
   setPageNumber,
+  setFilters,
 } from "./Slices/FilterSlice";
 import {
   charactersAPI,
@@ -34,10 +34,10 @@ export {
   themeSwitch,
 
   // filter actions
-  setPostPerPage,
   resetFilter,
   setSearchTerm,
   setPageNumber,
+  setFilters,
 
   // Characters API
   useGetAllCharactersQuery,

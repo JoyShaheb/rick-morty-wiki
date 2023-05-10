@@ -1,17 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { CharacterStatusEnums, CharacterGenderEnums } from "../../types/enums";
 
 interface FilterState {
   searchTerm: string;
   pageNumber: number;
-  postsPerPage: number;
+  status: CharacterStatusEnums | "";
+  species: string;
+  gender: CharacterGenderEnums | "";
+  episode: number;
+  location: number;
 }
 
 const initialState: FilterState = {
   searchTerm: "",
   pageNumber: 1,
-  postsPerPage: 10,
-  // will add more stuffs later
+  status: "",
+  species: "",
+  gender: "",
+  episode: 1,
+  location: 1,
 };
 
 export const filterSlice = createSlice({
@@ -24,12 +32,19 @@ export const filterSlice = createSlice({
     setPageNumber: (state: FilterState, action: PayloadAction<number>) => {
       state.pageNumber = action.payload;
     },
-    setPostPerPage: (state: FilterState, action: PayloadAction<number>) => {
-      state.postsPerPage = action.payload;
+    setFilters: (
+      state: FilterState,
+      action: PayloadAction<{
+        name: keyof FilterState;
+        value: string | number;
+      }>
+    ) => {
+      const { name, value } = action.payload;
+      state[name] = value;
     },
     resetFilter: () => initialState,
   },
 });
 
-export const { setPostPerPage, resetFilter, setSearchTerm, setPageNumber } =
+export const { resetFilter, setSearchTerm, setPageNumber, setFilters } =
   filterSlice.actions;

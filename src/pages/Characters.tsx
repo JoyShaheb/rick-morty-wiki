@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import {
   RootState,
   setPageNumber,
@@ -10,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { ICharacter } from "../types/characters.interface";
 import { nanoid } from "nanoid";
 import { ProgressBar } from "../components/NProgress/ProgressBar";
-import { Typography } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import {
   ErrorState,
   NoDataState,
@@ -19,17 +18,20 @@ import {
 import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { useSelector, useDispatch } from "react-redux";
+import CharacterFilter from "../components/Filters/CharacterFilter";
 
 const Characters = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { searchTerm, pageNumber } = useSelector((x: RootState) => x.filter);
+  const { searchTerm, pageNumber, gender, status } = useSelector(
+    (store: RootState) => store.filter
+  );
 
   const { data, isLoading, error, isFetching } = useGetAllCharactersQuery({
     page: pageNumber,
     name: searchTerm,
-    gender: "",
-    status: "",
+    gender: gender,
+    status: status,
     species: "",
   });
   const { info, results } = data || {};
@@ -64,8 +66,7 @@ const Characters = () => {
         </Grid>
 
         <Grid item xs={12} md={2} lg={2}>
-          {/* <CharacterFilter /> */}
-          character filters will be here
+          <CharacterFilter />
         </Grid>
 
         <Grid item xs={12} md={10} lg={10}>

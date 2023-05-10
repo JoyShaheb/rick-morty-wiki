@@ -8,3 +8,10 @@ export enum CharacterStatusEnums {
   DEAD = "Dead",
   UNKNOWN = "unknown",
 }
+
+export enum CharacterGenderEnums {
+  MALE = "male",
+  FEMALE = "female",
+  GENDERLESS = "genderless",
+  UNKNOWN = "unknown",
+}
