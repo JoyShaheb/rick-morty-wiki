@@ -1,17 +1,21 @@
-import { CharacterStatusEnums, CharacterGenderEnums } from "../types/enums";
+import {
+  CharacterStatusEnums,
+  CharacterGenderEnums,
+  CharacterSpeciesEnums,
+} from "../types/enums";
 
-export const SpeciesOption = [
-  "Human",
-  "Alien",
-  "Humanoid",
-  "Poopybutthole",
-  "Mythological",
-  "Unknown",
-  "Animal",
-  "Disease",
-  "Robot",
-  "Cronenberg",
-  "Planet",
+export const SpeciesOption: CharacterSpeciesEnums[] = [
+  CharacterSpeciesEnums.HUMAN,
+  CharacterSpeciesEnums.ALIEN,
+  CharacterSpeciesEnums.HUMANOID,
+  CharacterSpeciesEnums.POOPYBUTTHOLE,
+  CharacterSpeciesEnums.MYTHOLOGICAL,
+  CharacterSpeciesEnums.UNKNOWN,
+  CharacterSpeciesEnums.ANIMAL,
+  CharacterSpeciesEnums.DISEASE,
+  CharacterSpeciesEnums.ROBOT,
+  CharacterSpeciesEnums.CRONENBERG,
+  CharacterSpeciesEnums.PLANET,
 ];
 
 export const StatusOptions: CharacterStatusEnums[] = [

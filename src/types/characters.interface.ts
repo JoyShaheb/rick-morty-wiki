@@ -1,4 +1,8 @@
-import { CharacterStatusEnums } from "./enums";
+import {
+  CharacterStatusEnums,
+  CharacterGenderEnums,
+  CharacterSpeciesEnums,
+} from "./enums";
 
 interface IOrigin {
   name: string;
@@ -14,10 +18,9 @@ export interface ICharacter {
   id: number;
   name: string;
   status: CharacterStatusEnums;
-  species: string;
+  species: CharacterSpeciesEnums;
   type: string;
-  // implement the gender enum later
-  gender: string;
+  gender: CharacterGenderEnums;
   origin: IOrigin;
   location: ILocation;
   image: string;

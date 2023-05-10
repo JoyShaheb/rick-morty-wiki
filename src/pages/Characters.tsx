@@ -23,7 +23,7 @@ import CharacterFilter from "../components/Filters/CharacterFilter";
 const Characters = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { searchTerm, pageNumber, gender, status } = useSelector(
+  const { searchTerm, pageNumber, gender, status, species } = useSelector(
     (store: RootState) => store.filter
   );
 
@@ -32,7 +32,7 @@ const Characters = () => {
     name: searchTerm,
     gender: gender,
     status: status,
-    species: "",
+    species: species,
   });
   const { info, results } = data || {};
 

@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { CharacterStatusEnums, CharacterGenderEnums } from "../../types/enums";
+import {
+  CharacterStatusEnums,
+  CharacterGenderEnums,
+  CharacterSpeciesEnums,
+} from "../../types/enums";
 
 interface FilterState {
   searchTerm: string;
   pageNumber: number;
   status: CharacterStatusEnums | "";
-  species: string;
+  species: CharacterSpeciesEnums | "";
   gender: CharacterGenderEnums | "";
   episode: number;
   location: number;
@@ -40,6 +44,7 @@ export const filterSlice = createSlice({
       }>
     ) => {
       const { name, value } = action.payload;
+      // @ts-ignore
       state[name] = value;
     },
     resetFilter: () => initialState,
