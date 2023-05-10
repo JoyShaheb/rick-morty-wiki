@@ -36,7 +36,7 @@ const Characters = () => {
   });
   const { info, results } = data || {};
 
-  ProgressBar(isFetching);
+  ProgressBar(isLoading || isFetching);
   return (
     <div>
       <SearchBar

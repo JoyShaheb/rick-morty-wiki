@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const navigate = useNavigate();
 
-export default Home
+  useEffect(() => {
+    navigate("/Characters");
+  }, []);
+  return <div>Home</div>;
+};
+
+export default Home;
