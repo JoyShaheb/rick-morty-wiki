@@ -2,7 +2,7 @@ import { useGetOneCharacterByIDQuery } from "../store";
 import { ProgressBar } from "../components/NProgress/ProgressBar";
 import { useParams } from "react-router-dom";
 import { Typography, CardMedia, Chip, Stack } from "@mui/material";
-import { ErrorState, LoadingState } from "../components/states";
+import { ErrorState } from "../components/states";
 import Tags from "../components/Tags/Tags";
 import { ICharacter } from "../types/characters.interface";
 import {
@@ -10,6 +10,7 @@ import {
   CharacterSpeciesEnums,
   CharacterStatusEnums,
 } from "../types/enums";
+import CharacterDetailsSkeleton from "../components/Skeleton/CharacterDetailsSkeleton";
 
 const CharacterDetails = () => {
   const params = useParams();
@@ -27,7 +28,13 @@ const CharacterDetails = () => {
   ProgressBar(isLoading || isFetching);
   return (
     <>
-      <LoadingState error={error} isLoading={isLoading} skeletonCount={1} />
+      <Stack direction="column" alignItems="center" gap={1}>
+        <CharacterDetailsSkeleton
+          error={error}
+          isLoading={isLoading}
+          isFetching={isFetching}
+        />
+      </Stack>
       <ErrorState error={error} isLoading={isLoading} />
       {!isLoading &&
         !error &&
