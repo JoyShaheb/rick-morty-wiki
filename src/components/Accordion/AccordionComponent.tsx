@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -23,8 +24,9 @@ const AccordionComponent: FC<IAccordionComponentProps> = ({
   onChange,
   defaultExpanded,
 }) => {
+  const [accordionExpanded, setAccordionExpanded] = useState(defaultExpanded);
   return (
-    <Accordion defaultExpanded={defaultExpanded}>
+    <Accordion defaultExpanded={accordionExpanded}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
