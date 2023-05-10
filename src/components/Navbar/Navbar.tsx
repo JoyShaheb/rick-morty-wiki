@@ -56,9 +56,7 @@ const Navbar: FC<iNavbarProps> = ({ window, children }) => {
         {navItems.map((item: string) => (
           <ListItem key={item} disablePadding>
             <ListItemButton
-              onClick={() =>
-                item === "Characters" ? navigate(`/`) : navigate(`/${item}`)
-              }
+              onClick={() => navigate(`/${item}`)}
               sx={{ textAlign: "center" }}
             >
               <ListItemText primary={item} />
