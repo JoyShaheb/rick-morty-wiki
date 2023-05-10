@@ -1,7 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { ICharacter } from "../../types/characters.interface";
 import { IPaginationInfo } from "../../types/pagination.interface";
-import { CharacterStatusEnums } from "../../types/enums";
+import {
+  CharacterGenderEnums,
+  CharacterSpeciesEnums,
+  CharacterStatusEnums,
+} from "../../types/enums";
 
 interface IGetCharactersResponse {
   info: IPaginationInfo;
@@ -12,8 +16,8 @@ interface characterQueryParams {
   name: string;
   page: number;
   status: CharacterStatusEnums | "";
-  species: string;
-  gender: string;
+  species: CharacterSpeciesEnums | "";
+  gender: CharacterGenderEnums | "";
 }
 
 export const charactersAPI = createApi({
@@ -31,7 +35,7 @@ export const charactersAPI = createApi({
         `?name=${name}&page=${page}&status=${status}&species=${species}&gender=${gender}`,
       providesTags: ["Characters"],
     }),
-    getOneCharacterByID: builder.query<ICharacter, number>({
+    getOneCharacterByID: builder.query<ICharacter, string | number>({
       query: (id) => `/${id}`,
       providesTags: ["Characters"],
     }),
