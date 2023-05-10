@@ -86,7 +86,11 @@ const Navbar: FC<iNavbarProps> = ({ window, children }) => {
     <Box sx={{ display: "flex" }}>
       <AppBar component="nav" sx={{ zIndex: 5 }}>
         <Container maxWidth="xl">
-          <Toolbar>
+          <Toolbar
+            sx={{
+              p: "0 !important",
+            }}
+          >
             <IconButton
               color="inherit"
               aria-label="open drawer"
