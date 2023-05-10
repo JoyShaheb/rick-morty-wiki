@@ -1,4 +1,5 @@
 import { useGetOneCharacterByIDQuery } from "../store";
+import { ProgressBar } from "../components/NProgress/ProgressBar";
 import { useParams } from "react-router-dom";
 import { Typography, CardMedia, Chip, Stack } from "@mui/material";
 import { ErrorState, LoadingState } from "../components/states";
@@ -23,6 +24,7 @@ const CharacterDetails = () => {
 
   const { gender, image, location, name, origin, status, species } = data || {};
 
+  ProgressBar(isLoading || isFetching);
   return (
     <>
       <LoadingState error={error} isLoading={isLoading} skeletonCount={1} />

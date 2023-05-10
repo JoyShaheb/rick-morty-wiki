@@ -21,6 +21,8 @@
 * put a custom 404 error on the errorState
 * change tab icons
 * custom scrollbars
+* fix switch on the mobile screen
+* custom loading state for character details page
 
 ## future features
 

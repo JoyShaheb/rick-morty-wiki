@@ -1,0 +1,27 @@
+:root{
+  --color-1: #f1f1f1;
+  --color-2: #90e0ef;
+}
+
+
+/* For Webkit-based browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-1); /* Background color of the scrollbar track */
+  border-radius: 4px; /* Add border radius to make the scrollbar track look smooth */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-2); /* Light blue color for the scrollbar thumb */
+  border-radius: 4px; /* Add border radius to make the scrollbar thumb look smooth */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* Make the scrollbar thin */
+  scrollbar-color: var(--color-2) var(--color-1); /* Light blue color for the scrollbar thumb and background color for the scrollbar track */
+}
