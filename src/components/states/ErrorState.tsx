@@ -1,9 +1,8 @@
 import { FC } from "react";
 import { nanoid } from "nanoid";
-import { Grid } from "@mui/material";
+import { Grid, CardMedia } from "@mui/material";
 import { iErrorState } from "../../types/types";
 import Error404 from "../../assets/Error404.svg";
-import CardMedia from "@mui/material/CardMedia";
 
 const ErrorState: FC<iErrorState> = ({ error, isLoading }) => {
   return (
