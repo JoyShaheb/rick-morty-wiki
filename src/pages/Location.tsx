@@ -43,8 +43,6 @@ const Location = () => {
     multipleCharactersRequest ? multipleCharactersRequest : ""
   );
 
-  console.log(residents?.length);
-
   const handleChange = (e: SelectChangeEvent) => {
     dispatch(setFilters({ name: "location", value: e.target.value }));
   };
