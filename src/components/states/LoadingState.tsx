@@ -20,7 +20,7 @@ const LoadingState: FC<iLoadingState> = ({
         !error &&
         Array(skeletonCount)
           .fill(0)
-          .map((x, i) => (
+          .map(() => (
             <Grid key={nanoid()} item xs={12} sm={6} md={4} lg={3}>
               <Skeleton
                 animation={animationType}

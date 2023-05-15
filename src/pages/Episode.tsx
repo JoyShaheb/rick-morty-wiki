@@ -21,10 +21,10 @@ const Episode = () => {
   const navigate = useNavigate();
   const filter = useSelector((store: RootState) => store.filter);
 
-  const { data: allEpisodesInfo, isLoading: allEpisodesLoading } =
+  const { data: allEpisodesInfo } =
     useGetAllEpisodesQuery(undefined);
 
-  const { data, error, isLoading, isFetching, isSuccess, isError } =
+  const { data, error, isLoading, isFetching } =
     useGetOneEpisodeQuery(filter.episode);
 
   const { episode, air_date, characters, name } = data || {};

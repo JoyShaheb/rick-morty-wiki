@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { Grid, Typography, CardMedia } from "@mui/material";
+import { Grid, CardMedia } from "@mui/material";
 import { iErrorState } from "../../types/types";
 import Error404 from "../../assets/Error404.svg";
 

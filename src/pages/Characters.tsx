@@ -59,7 +59,7 @@ const Characters = () => {
           <PaginationComponent
             currentPage={pageNumber}
             count={info?.pages}
-            onChange={(e: React.ChangeEvent<unknown>, page: number) =>
+            onChange={(_, page: number) =>
               dispatch(setPageNumber(page))
             }
           />
