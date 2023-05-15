@@ -15,3 +15,5 @@
 * add storybook features
 * add unit tests
 * rtk-query caching, polling, Invalidation
+* improve loading time, performances
+* ssr ?
