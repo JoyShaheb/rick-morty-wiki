@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { nanoid } from "@reduxjs/toolkit";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, CardMedia } from "@mui/material";
 import { iErrorState } from "../../types/types";
+import Error404 from "../../assets/Error404.svg";
 
 interface iNoDataState extends iErrorState {
   dataLength?: number;
@@ -16,10 +17,27 @@ const NoDataState: FC<iNoDataState> = ({
   return (
     <>
       {!isLoading && !isFetching && !error && dataLength === 0 && (
-        <Grid key={nanoid()} item xs={12}>
-          <Typography variant="h5" textAlign="center">
-            No Data found
-          </Typography>
+        <Grid
+          key={nanoid()}
+          item
+          xs={12}
+          justifyContent="center"
+          display="flex"
+        >
+          <CardMedia
+            component="img"
+            image={Error404}
+            // onLoad={() => console.log("this is loading")}
+            // onError={() => console.log("this is error")}
+            alt="Error 404 image"
+            sx={{
+              maxWidth: {
+                xs: "100%",
+                sm: "500px",
+              },
+              objectFit: "cover",
+            }}
+          />
         </Grid>
       )}
     </>

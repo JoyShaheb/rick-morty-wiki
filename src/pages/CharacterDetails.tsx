@@ -43,7 +43,7 @@ const CharacterDetails = () => {
           <Stack direction="column" alignItems="center" gap={1}>
             <Stack
               direction={{ sm: "column", md: "row" }}
-              alignItems={{ sm: "start", md: "center" }}
+              alignItems={{ sm: "center", md: "center" }}
               gap={1}
               mb={1}
             >

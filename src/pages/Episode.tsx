@@ -100,7 +100,6 @@ const Episode = () => {
               (characterData as ICharacter[])?.map((character: ICharacter) => (
                 <Grid key={nanoid()} item xs={12} sm={6} md={4} lg={3}>
                   <CardComponent
-                    key={character.id}
                     {...character}
                     onClick={() => navigate(`/characters/${character.id}`)}
                   />
