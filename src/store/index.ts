@@ -12,16 +12,26 @@ import {
   charactersAPI,
   useGetAllCharactersQuery,
   useGetOneCharacterByIDQuery,
+  useGetMultipleCharactersQuery
 } from "./API/CharactersAPI";
+import {
+  episodesAPI,
+  useGetAllEpisodesQuery,
+  useGetOneEpisodeQuery,
+} from "./API/EpisodesAPI";
 
 export const store = configureStore({
   reducer: {
     [charactersAPI.reducerPath]: charactersAPI.reducer,
+    [episodesAPI.reducerPath]: episodesAPI.reducer,
     system: sysmtemSlice.reducer,
     filter: filterSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(charactersAPI.middleware),
+    getDefaultMiddleware().concat(
+      charactersAPI.middleware,
+      episodesAPI.middleware
+    ),
 });
 
 setupListeners(store.dispatch);
@@ -42,4 +52,9 @@ export {
   // Characters API
   useGetAllCharactersQuery,
   useGetOneCharacterByIDQuery,
+  useGetMultipleCharactersQuery,
+
+  // Episodes API
+  useGetAllEpisodesQuery,
+  useGetOneEpisodeQuery,
 };

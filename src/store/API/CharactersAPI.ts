@@ -39,8 +39,12 @@ export const charactersAPI = createApi({
       query: (id) => `/${id}`,
       providesTags: ["Characters"],
     }),
+    getMultipleCharacters: builder.query<ICharacter[], string>({
+      query: (ids) => `/${ids}`,
+      providesTags: ["Characters"],
+    }),
   }),
 });
 
-export const { useGetAllCharactersQuery, useGetOneCharacterByIDQuery } =
+export const { useGetAllCharactersQuery, useGetOneCharacterByIDQuery, useGetMultipleCharactersQuery } =
   charactersAPI;
