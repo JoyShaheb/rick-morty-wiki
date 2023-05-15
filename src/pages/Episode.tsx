@@ -21,11 +21,11 @@ const Episode = () => {
   const navigate = useNavigate();
   const filter = useSelector((store: RootState) => store.filter);
 
-  const { data: allEpisodesInfo } =
-    useGetAllEpisodesQuery(undefined);
+  const { data: allEpisodesInfo } = useGetAllEpisodesQuery(undefined);
 
-  const { data, error, isLoading, isFetching } =
-    useGetOneEpisodeQuery(filter.episode);
+  const { data, error, isLoading, isFetching } = useGetOneEpisodeQuery(
+    filter.episode
+  );
 
   const { episode, air_date, characters, name } = data || {};
 
@@ -34,7 +34,10 @@ const Episode = () => {
     .join(",");
 
   const { data: characterData } = useGetMultipleCharactersQuery(
-    multipleCharactersRequest ? multipleCharactersRequest : ""
+    multipleCharactersRequest ? multipleCharactersRequest : "",
+    {
+      // pollingInterval: 1000,
+    }
   );
 
   const handleChange = (e: SelectChangeEvent) => {

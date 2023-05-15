@@ -20,7 +20,10 @@ const CharacterDetails = () => {
       params as {
         id: string;
       }
-    )?.id
+    )?.id,
+    {
+      // pollingInterval: 1000,
+    }
   );
 
   const { gender, image, location, name, origin, status, species } = data || {};

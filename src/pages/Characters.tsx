@@ -33,6 +33,8 @@ const Characters = () => {
     gender: gender,
     status: status,
     species: species,
+  }, {
+    // pollingInterval: 1000,
   });
   const { info, results } = data || {};
 

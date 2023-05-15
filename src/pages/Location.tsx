@@ -39,7 +39,10 @@ const Location = () => {
     isFetching,
     error,
   } = useGetMultipleCharactersQuery(
-    multipleCharactersRequest ? multipleCharactersRequest : ""
+    multipleCharactersRequest ? multipleCharactersRequest : "",
+    {
+      // pollingInterval: 1000,
+    }
   );
 
   const handleChange = (e: SelectChangeEvent) => {
