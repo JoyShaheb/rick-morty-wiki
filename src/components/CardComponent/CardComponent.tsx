@@ -8,7 +8,6 @@ interface iCardComponent extends ICharacter {
 }
 
 const CardComponent: FC<iCardComponent> = ({
-  id,
   image,
   name,
   status,
