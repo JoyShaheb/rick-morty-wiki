@@ -8,7 +8,7 @@ import {
   setFilters,
 } from "../store";
 import { Grid, Stack, Typography } from "@mui/material";
-import EpisodeFilter from "../components/Filters/EpisodeFilter";
+import DropDownFilter from "../components/Filters/DropDownFilter";
 import { useSelector, useDispatch } from "react-redux";
 import { SelectChangeEvent } from "@mui/material/Select";
 import { ErrorState, LoadingState, NoDataState } from "../components/states";
@@ -70,7 +70,7 @@ const Episode = () => {
           >
             Pick Episode
           </Typography>
-          <EpisodeFilter
+          <DropDownFilter
             total={allEpisodesInfo?.info?.count as number}
             label="Episodes"
             name="Episode"

@@ -3,7 +3,7 @@ import { Box, Select, InputLabel, MenuItem, FormControl } from "@mui/material";
 import { nanoid } from "nanoid";
 import { SelectChangeEvent } from "@mui/material/Select";
 
-interface iEpisodeFilter {
+interface iDropDownFilter {
   state: number;
   setState: (e: SelectChangeEvent) => void;
   total: number;
@@ -11,7 +11,7 @@ interface iEpisodeFilter {
   name: string;
 }
 
-const EpisodeFilter: FC<iEpisodeFilter> = ({
+const DropDownFilter: FC<iDropDownFilter> = ({
   setState,
   state,
   total,
@@ -42,4 +42,4 @@ const EpisodeFilter: FC<iEpisodeFilter> = ({
   );
 };
 
-export default EpisodeFilter;
+export default DropDownFilter;

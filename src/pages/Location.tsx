@@ -10,7 +10,7 @@ import {
 } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 import { ProgressBar } from "../components/NProgress/ProgressBar";
-import EpisodeFilter from "../components/Filters/EpisodeFilter";
+import DropDownFilter from "../components/Filters/DropDownFilter";
 import { useNavigate } from "react-router-dom";
 import { ErrorState, LoadingState, NoDataState } from "../components/states";
 import { ICharacter } from "../types/characters.interface";
@@ -79,7 +79,7 @@ const Location = () => {
           >
             Pick Location
           </Typography>
-          <EpisodeFilter
+          <DropDownFilter
             total={allLocationsData?.info?.count as number}
             label="Locations"
             name="Location"
