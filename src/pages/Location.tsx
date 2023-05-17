@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProgressBar } from "../components/NProgress/ProgressBar";
 import DropDownFilter from "../components/Filters/DropDownFilter";
 import { useNavigate } from "react-router-dom";
-import { ErrorState, LoadingState, NoDataState } from "../components/states";
+import { States } from "../components/states";
 import { ICharacter } from "../types/characters.interface";
 import CardComponent from "../components/CardComponent/CardComponent";
 import { nanoid } from "nanoid";
@@ -91,17 +91,11 @@ const Location = () => {
         </Grid>
         <Grid item xs={12} md={10} lg={10}>
           <Grid container rowSpacing={1} columnSpacing={1}>
-            <LoadingState
+            <States
+              dataLength={residents?.length as number}
               error={error}
               isLoading={isLoading}
               skeletonCount={12}
-              isFetching={isFetching}
-            />
-            <ErrorState error={error} isLoading={isLoading} />
-            <NoDataState
-              error={error}
-              isLoading={isLoading}
-              dataLength={residents?.length}
               isFetching={isFetching}
             />
             {!isLoading &&

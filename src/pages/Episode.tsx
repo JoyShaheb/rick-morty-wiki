@@ -11,7 +11,7 @@ import { Grid, Stack, Typography } from "@mui/material";
 import DropDownFilter from "../components/Filters/DropDownFilter";
 import { useSelector, useDispatch } from "react-redux";
 import { SelectChangeEvent } from "@mui/material/Select";
-import { ErrorState, LoadingState, NoDataState } from "../components/states";
+import { States } from "../components/states";
 import CardComponent from "../components/CardComponent/CardComponent";
 import { nanoid } from "nanoid";
 import { ICharacter } from "../types/characters.interface";
@@ -83,19 +83,14 @@ const Episode = () => {
         </Grid>
         <Grid item xs={12} md={10} lg={10}>
           <Grid container rowSpacing={1} columnSpacing={1}>
-            <LoadingState
+            <States
+              dataLength={characters?.length as number}
               error={error}
               isLoading={isLoading}
               skeletonCount={12}
               isFetching={isFetching}
             />
-            <ErrorState error={error} isLoading={isLoading} />
-            <NoDataState
-              error={error}
-              isLoading={isLoading}
-              dataLength={characters?.length}
-              isFetching={isFetching}
-            />
+
             {!isLoading &&
               !error &&
               !isFetching &&

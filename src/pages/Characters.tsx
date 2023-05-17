@@ -10,11 +10,7 @@ import { ICharacter } from "../types/characters.interface";
 import { nanoid } from "nanoid";
 import { ProgressBar } from "../components/NProgress/ProgressBar";
 import { Typography, Grid } from "@mui/material";
-import {
-  ErrorState,
-  NoDataState,
-  LoadingState,
-} from "../components/states/index";
+import { States } from "../components/states/index";
 import PaginationComponent from "../components/PaginationComponent/PaginationComponent";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,15 +23,18 @@ const Characters = () => {
     (store: RootState) => store.filter
   );
 
-  const { data, isLoading, error, isFetching } = useGetAllCharactersQuery({
-    page: pageNumber,
-    name: searchTerm,
-    gender: gender,
-    status: status,
-    species: species,
-  }, {
-    // pollingInterval: 1000,
-  });
+  const { data, isLoading, error, isFetching } = useGetAllCharactersQuery(
+    {
+      page: pageNumber,
+      name: searchTerm,
+      gender: gender,
+      status: status,
+      species: species,
+    },
+    {
+      // pollingInterval: 1000,
+    }
+  );
   const { info, results } = data || {};
 
   ProgressBar(isLoading || isFetching);
@@ -61,9 +60,7 @@ const Characters = () => {
           <PaginationComponent
             currentPage={pageNumber}
             count={info?.pages}
-            onChange={(_, page: number) =>
-              dispatch(setPageNumber(page))
-            }
+            onChange={(_, page: number) => dispatch(setPageNumber(page))}
           />
         </Grid>
 
@@ -73,17 +70,12 @@ const Characters = () => {
 
         <Grid item xs={12} md={10} lg={10}>
           <Grid container rowSpacing={1} columnSpacing={1}>
-            <LoadingState
+            <States
+              dataLength={results?.length as number}
               error={error}
               isLoading={isLoading}
               skeletonCount={12}
               isFetching={isFetching}
-            />
-            <ErrorState error={error} isLoading={isLoading} />
-            <NoDataState
-              error={error}
-              isLoading={isLoading}
-              dataLength={results?.length}
             />
 
             {!isLoading &&
