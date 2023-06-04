@@ -4,16 +4,19 @@ import { ICharacter } from "../../types/characters.interface";
 import { CharacterStatusEnums } from "../../types/enums";
 
 interface iCardComponent extends ICharacter {
+  /**
+   * Function to be called when the card is clicked
+   */
   onClick: () => void;
 }
 
 const CardComponent: FC<iCardComponent> = ({
-  image,
-  name,
-  status,
-  onClick,
+  image = "",
+  name = "",
+  status = CharacterStatusEnums.ALIVE,
+  onClick = () => console.log("Card Clicked"),
   location,
-  species,
+  species = "",
 }) => {
   return (
     <Card
