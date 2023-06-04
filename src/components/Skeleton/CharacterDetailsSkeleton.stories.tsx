@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import CharacterDetailsSkeleton from "./CharacterDetailsSkeleton";
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 
 const meta = {
   title: "Components/Skeleton",
@@ -23,6 +22,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
+  render: (args) => (
+    <>
+      <Typography mb={2} textAlign="left" variant="h6">
+        Card Details Loader
+      </Typography>
+      <CharacterDetailsSkeleton {...args} />
+    </>
+  ),
   args: {
     error: undefined,
     isLoading: true,
