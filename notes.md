@@ -21,3 +21,7 @@ This project is polised and complete as of May 16th, 2023. I am happy with the o
 * rtk-query caching, polling, Invalidation
 * improve loading time, performances
 * ssr ?
+
+## storybook improvements
+
+* find out a way to add onChange actions to storybook
