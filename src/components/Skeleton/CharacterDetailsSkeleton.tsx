@@ -4,9 +4,9 @@ import Box from "@mui/material/Box";
 import { iErrorState } from "../../types/types";
 
 const CharacterDetailsSkeleton: FC<iErrorState> = ({
-  error,
-  isLoading,
-  isFetching,
+  error = undefined,
+  isLoading = false,
+  isFetching = false,
 }) => {
   return (
     <div>
