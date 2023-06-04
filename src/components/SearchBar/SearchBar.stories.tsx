@@ -1,7 +1,6 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import SearchBar from "./SearchBar";
-import { action } from "@storybook/addon-actions";
 
 const meta = {
   component: SearchBar,
