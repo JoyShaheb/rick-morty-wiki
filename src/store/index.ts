@@ -2,6 +2,17 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { sysmtemSlice, resetSystem, themeSwitch } from "./Slices/systemSlice";
 import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import {
   filterSlice,
   setSearchTerm,
   resetFilter,
@@ -25,21 +36,37 @@ import {
   useGetOneLocationQuery,
 } from "./API/LocationAPI";
 
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedSystemReducer = persistReducer(
+  persistConfig,
+  sysmtemSlice.reducer
+);
+
 export const store = configureStore({
   reducer: {
     [charactersAPI.reducerPath]: charactersAPI.reducer,
     [episodesAPI.reducerPath]: episodesAPI.reducer,
     [locationAPI.reducerPath]: locationAPI.reducer,
-    system: sysmtemSlice.reducer,
+    system: persistedSystemReducer,
     filter: filterSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(
       charactersAPI.middleware,
       episodesAPI.middleware,
       locationAPI.middleware
     ),
 });
+
+export const persistedStore = persistStore(store);
 
 setupListeners(store.dispatch);
 
