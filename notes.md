@@ -9,6 +9,7 @@
 * implemented RTK and RTK Query
 * animated loading skeletons
 * mobile responsive
+* redux persist added to remember user's theme choice / settings
 
 ## outcome?
 
@@ -16,8 +17,10 @@ This project is polised and complete as of May 16th, 2023. I am happy with the o
 
 ## future features
 
-* add storybook features
+* add storybook features [work in progress]
 * add unit tests
 * rtk-query caching, polling, Invalidation
 * improve loading time, performances
 * ssr ?
+* husky, lint-staged, prettier, eslint
+* [x] redux persist to save data in local storage
