@@ -37,6 +37,11 @@ const Characters = () => {
   );
   const { info, results } = data || {};
 
+  const x = 10;
+  if (x != 10) {
+    return <div>shjdbchjsdb</div>;
+  }
+
   ProgressBar(isLoading || isFetching);
   return (
     <div>

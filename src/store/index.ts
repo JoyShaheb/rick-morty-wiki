@@ -36,6 +36,13 @@ import {
   useGetOneLocationQuery,
 } from "./API/LocationAPI";
 
+import {
+  BookMarkSlice,
+  resetBookMark,
+  saveCharacter,
+  removeCharacter,
+} from "./Slices/BookMarkSlice";
+
 const persistConfig = {
   key: "root",
   storage,
@@ -46,6 +53,11 @@ const persistedSystemReducer = persistReducer(
   sysmtemSlice.reducer
 );
 
+const persistedBookMarksReducer = persistReducer(
+  persistConfig,
+  BookMarkSlice.reducer
+);
+
 export const store = configureStore({
   reducer: {
     [charactersAPI.reducerPath]: charactersAPI.reducer,
@@ -53,6 +65,7 @@ export const store = configureStore({
     [locationAPI.reducerPath]: locationAPI.reducer,
     system: persistedSystemReducer,
     filter: filterSlice.reducer,
+    bookmarks: persistedBookMarksReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -96,4 +109,9 @@ export {
   locationAPI,
   useGetAllLocationsQuery,
   useGetOneLocationQuery,
+
+  // BookMark actions
+  resetBookMark,
+  saveCharacter,
+  removeCharacter,
 };
