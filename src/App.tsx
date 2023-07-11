@@ -6,6 +6,7 @@ import {
   ErrorPage,
   Episode,
   Location,
+  BookMark,
 } from "./pages";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/characters/:id" element={<CharacterDetails />} />
             <Route path="/Episode" element={<Episode />} />
             <Route path="/location" element={<Location />} />
+            <Route path="/bookmark" element={<BookMark />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Container>

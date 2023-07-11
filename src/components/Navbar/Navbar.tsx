@@ -40,7 +40,7 @@ const Navbar: FC<iNavbarProps> = ({ window, children }) => {
   const brandName = "Rick & Morty Wiki";
 
   const drawerWidth = 240;
-  const navItems: string[] = ["Characters", "Episode", "Location"];
+  const navItems: string[] = ["Characters", "Episode", "Location", "BookMark"];
   const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
 
   const handleDrawerToggle: handleDrawerToggleType = () =>
