@@ -14,7 +14,7 @@
 
 ## outcome?
 
-This project is polised and complete as of May 16th, 2023. I am happy with the outcome and I am looking forward to improve it in the future. I have learned a lot from this project and I am looking forward to learn more and more.
+This project is polised and complete as of July 11th, 2023. I am happy with the outcome and I am looking forward to improve it in the future. I have learned a lot from this project and I am looking forward to learn more and more.
 
 ## future features
 
