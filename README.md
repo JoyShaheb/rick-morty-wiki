@@ -2,6 +2,7 @@
 
 * Dark / Light Mode implementation
 * able to filter through status, gender, & species
+* ability to save/unsave favourite characters
 * can search any character of your choice
 * pagination
 * handling of loading, error and fetching states
