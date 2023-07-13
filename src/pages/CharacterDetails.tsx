@@ -23,7 +23,7 @@ const CharacterDetails = () => {
     )?.id,
     {
       // pollingInterval: 1000,
-    }
+    },
   );
 
   const { gender, image, location, name, origin, status, species } = data || {};

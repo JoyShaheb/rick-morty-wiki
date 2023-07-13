@@ -24,7 +24,7 @@ const Location = () => {
   const { data: allLocationsData } = useGetAllLocationsQuery(undefined);
 
   const { data: OneLocationData } = useGetOneLocationQuery(
-    (filter.location as number) ? (filter.location as number) : 1
+    (filter.location as number) ? (filter.location as number) : 1,
   );
 
   const { dimension, residents = [], type, name } = OneLocationData || {};
@@ -42,7 +42,7 @@ const Location = () => {
     multipleCharactersRequest ? multipleCharactersRequest : "",
     {
       // pollingInterval: 1000,
-    }
+    },
   );
 
   const handleChange = (e: SelectChangeEvent) => {
@@ -120,7 +120,7 @@ const Location = () => {
                   <CardComponent
                     onClick={() =>
                       navigate(
-                        `/characters/${(locationCharacters as ICharacter)?.id}`
+                        `/characters/${(locationCharacters as ICharacter)?.id}`,
                       )
                     }
                     {...(locationCharacters as ICharacter)}

@@ -6,7 +6,7 @@ const Home = () => {
 
   useEffect(() => {
     navigate("/Characters");
-  }, []);
+  }, [navigate]);
   return <div>Home</div>;
 };
 

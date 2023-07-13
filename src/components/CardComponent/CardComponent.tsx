@@ -30,7 +30,7 @@ const CardComponent: FC<iCardComponent> = ({
 }) => {
   const dispatch = useDispatch();
   const bookmarks = useSelector(
-    (state: RootState) => state.bookmarks.savedCharacters
+    (state: RootState) => state.bookmarks.savedCharacters,
   );
 
   const handleSave = () => {

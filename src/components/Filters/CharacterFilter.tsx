@@ -11,7 +11,7 @@ import {
 const CharacterFilter = () => {
   const dispatch = useDispatch();
   const { status, species, gender } = useSelector(
-    (store: RootState) => store.filter
+    (store: RootState) => store.filter,
   );
 
   return (

@@ -24,7 +24,7 @@ const Episode = () => {
   const { data: allEpisodesInfo } = useGetAllEpisodesQuery(undefined);
 
   const { data, error, isLoading, isFetching } = useGetOneEpisodeQuery(
-    filter.episode
+    filter.episode,
   );
 
   const { episode, air_date, characters, name } = data || {};
@@ -37,7 +37,7 @@ const Episode = () => {
     multipleCharactersRequest ? multipleCharactersRequest : "",
     {
       // pollingInterval: 1000,
-    }
+    },
   );
 
   const handleChange = (e: SelectChangeEvent) => {

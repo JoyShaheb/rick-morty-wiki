@@ -19,7 +19,7 @@ export const BookMarkSlice = createSlice({
     }),
     removeCharacter: (state: IBookMark, action: PayloadAction<number>) => {
       const index = state.savedCharacters.findIndex(
-        (id) => id === action.payload
+        (id) => id === action.payload,
       );
       if (index !== -1) {
         state.savedCharacters.splice(index, 1);

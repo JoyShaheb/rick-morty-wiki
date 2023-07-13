@@ -19,5 +19,4 @@ export const episodesAPI = createApi({
   }),
 });
 
-export const { useGetAllEpisodesQuery, useGetOneEpisodeQuery } =
-  episodesAPI;
+export const { useGetAllEpisodesQuery, useGetOneEpisodeQuery } = episodesAPI;

@@ -41,7 +41,7 @@ export const filterSlice = createSlice({
       action: PayloadAction<{
         name: keyof FilterState;
         value: string | number;
-      }>
+      }>,
     ) => {
       const { name, value } = action.payload;
       state[name] = value as never;

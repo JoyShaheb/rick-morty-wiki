@@ -50,12 +50,12 @@ const persistConfig = {
 
 const persistedSystemReducer = persistReducer(
   persistConfig,
-  sysmtemSlice.reducer
+  sysmtemSlice.reducer,
 );
 
 const persistedBookMarksReducer = persistReducer(
   persistConfig,
-  BookMarkSlice.reducer
+  BookMarkSlice.reducer,
 );
 
 export const store = configureStore({
@@ -75,7 +75,7 @@ export const store = configureStore({
     }).concat(
       charactersAPI.middleware,
       episodesAPI.middleware,
-      locationAPI.middleware
+      locationAPI.middleware,
     ),
 });
 

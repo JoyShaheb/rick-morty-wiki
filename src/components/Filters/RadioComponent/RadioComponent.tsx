@@ -10,7 +10,7 @@ import {
 interface iRadioComponent {
   options: string[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string
+  value?: string;
 }
 
 const RadioComponent: FC<iRadioComponent> = ({ options, onChange, value }) => {
