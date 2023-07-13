@@ -20,7 +20,7 @@ const Characters = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { searchTerm, pageNumber, gender, status, species } = useSelector(
-    (store: RootState) => store.filter
+    (store: RootState) => store.filter,
   );
 
   const { data, isLoading, error, isFetching } = useGetAllCharactersQuery(
@@ -33,14 +33,9 @@ const Characters = () => {
     },
     {
       // pollingInterval: 1000,
-    }
+    },
   );
   const { info, results } = data || {};
-
-  const x = 10;
-  if (x != 10) {
-    return <div>shjdbchjsdb</div>;
-  }
 
   ProgressBar(isLoading || isFetching);
   return (

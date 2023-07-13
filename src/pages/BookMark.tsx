@@ -6,18 +6,19 @@ import { useNavigate } from "react-router-dom";
 import { ICharacter } from "../types/characters.interface";
 import { nanoid } from "nanoid";
 import { States } from "../components/states";
+import { ProgressBar } from "../components/NProgress/ProgressBar";
 
 const BookMark = () => {
   const navigate = useNavigate();
   const bookmarks = useSelector(
-    (state: RootState) => state.bookmarks.savedCharacters
+    (state: RootState) => state.bookmarks.savedCharacters,
   );
 
   const { data, isLoading, error, isFetching } = useGetMultipleCharactersQuery(
-    bookmarks.toString()
+    bookmarks.toString(),
   );
 
-  console.log(data);
+  ProgressBar(isLoading || isFetching);
   return (
     <Stack>
       <Typography mb={2} textAlign="center" variant="h6">
