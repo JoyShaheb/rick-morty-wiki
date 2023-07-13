@@ -18,10 +18,10 @@ This project is polised and complete as of July 11th, 2023. I am happy with the 
 
 ## upcoming features
 
+* [x] husky, lint-staged, pre-commit, prettier, eslint
+* [x] redux persist to save data in local storage
 * add storybook features [work in progress]
 * add unit tests
 * rtk-query caching, polling, Invalidation
 * improve loading time, performances
 * ssr ?
-* husky, lint-staged, pre-commit, prettier, eslint
-* [x] redux persist to save data in local storage
